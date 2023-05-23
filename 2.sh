@@ -1,4 +1,4 @@
 #!/bin/bash  
 
-value=`cat access.log | awk -F ';' '$3 == 500' | sort | uniq -c | sort -nr | head -n 10 | awk -F ';' '{print $1}' | tac`
+value=`cat access.log | awk -F ';' '$3 == 500' | awk -F ';' '{print $1}' | uniq -c | head -n 10 | sort`
 echo "$value"
